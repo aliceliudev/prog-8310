@@ -4,39 +4,28 @@
     <meta charset="UTF-8">	
     <title>Convert from Fahrenheit to Centigrade</title>
 
-    <script>
-
-    
-    const temp_f = prompt("Enter a temperature in Fahrenheit.");
-    var i;
+<script>
+    var temp_f;
+    var cnt = 0;
    
+    while(1){
+        temp_f = prompt("Enter a temperature in Fahrenheit.");
+cnt++;
+if (temp_f == null || isNaN(parseFloat(temp_f))) {
+if (cnt >= 3) {
+alert("Sorry, you have entered so many times of illegal input! Try some time later!");
+break;
+} else {
+    alert("'" + temp_f + "' is illegal, please try again.");
 
-   for (i = 0; i < 3; i++)
-{
-     if(temp_f ==null || isNaN(parseFloat(temp_f)) == true )
-   
-
-     {       
-        const temp_f1 = prompt("Please enter a valid temperature!"); 
-    if (temp_f1 != null && isNaN(parseFloat(temp_f1)) == false)
-        {
-         const temp_c = (parseFloat(temp_f1) - 32) * 5/9;
-         alert("Fahrenheit temperature is " + temp_f1); 
-         alert(`Celsius temperature is ${temp_c}.`); 
-         break;
-        }
- 
-     }
-    else
-      {
-
-        const temp_c = (parseFloat(temp_f) - 32) * 5/9;  
-        alert("Fahrenheit temperature is " + temp_f);       
-        alert(`Celsius temperature is ${temp_c}.`);
-        break;
-      }
-             
 }
+} else {
+   const temp_c = (parseFloat(temp_f) - 32) * 5/9;
+alert("Fahrenheit temperature is " + temp_f);
+alert(`Celsius temperature is ${temp_c}.`);
+break;
+}
+    };
          
     </script>
 </head>
