@@ -10,40 +10,34 @@
     const temp_f = prompt("Enter a temperature in Fahrenheit.");
     var i;
    
-if(temp_f ==null || isNaN(parseFloat(temp_f)) == true )
-{
+
    for (i = 0; i < 3; i++)
-     
+{
+     if(temp_f ==null || isNaN(parseFloat(temp_f)) == true )
+   
 
-     {
-            
+     {       
         const temp_f1 = prompt("Please enter a valid temperature!"); 
-        if (temp_f1 != null && isNaN(parseFloat(temp_f1)) == false)
-
+    if (temp_f1 != null && isNaN(parseFloat(temp_f1)) == false)
         {
          const temp_c = (parseFloat(temp_f1) - 32) * 5/9;
          alert("Fahrenheit temperature is " + temp_f1); 
          alert(`Celsius temperature is ${temp_c}.`); 
          break;
-        
         }
-
+ 
      }
-    
-        
-}
-   
-if(temp_f !=null && isNaN(parseFloat(temp_f)) == false )
-   
+    else
+      {
 
-    {
         const temp_c = (parseFloat(temp_f) - 32) * 5/9;  
         alert("Fahrenheit temperature is " + temp_f);       
         alert(`Celsius temperature is ${temp_c}.`);
-    }
-     
-    
-      
+        break;
+      }
+             
+}
+         
     </script>
 </head>
 <body>
