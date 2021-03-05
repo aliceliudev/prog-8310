@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">	
+    <title>Convert from Fahrenheit to Centigrade</title>
+
+    <script>
+        let f;
+        const existNumber = 999;
+        do 
+        {
+             f = prompt("Enter a temperature in Fahrenheit! Enter '999' to exit!");
+           if (isNaN(f))
+            {
+               alert("Input must be a number!");
+             }
+
+            else if (f < -100 || f > 212)
+             {
+               alert("Temperature must be between -100 and 212!");
+             }
+
+            else 
+            {
+              alert("Fahrenheit temperature is " + f);
+            }
+        }  while (f != exitNumber);
+
+
+
+         
+    </script>
+</head>
+<body>
+    <main>
+        <h1>Temperature converter</h1>
+    </main>
+</body>
+</html>
