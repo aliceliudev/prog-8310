@@ -1,39 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
     <meta charset="UTF-8">	
-    <title>Convert from Fahrenheit to Centigrade</title>
-
+    <title>Create a Sum of Numbers application</title>
+<head>
+    <title>Sum of Numbers</title>
     <script>
-        let f;
-        const existNumber = 999;
-        do 
-        {
-             f = prompt("Enter a temperature in Fahrenheit! Enter '999' to exit!");
-           if (isNaN(f))
-            {
-               alert("Input must be a number!");
-             }
+        var again = "y";
+        let rand_n, sum_n;
+        let cnt = 0;
+        
+        do {
+          rand_n = prompt("Enter any top number to sum.");
 
-            else if (f < -100 || f > 212)
-             {
-               alert("Temperature must be between -100 and 212!");
-             }
+           if (parseFloat(rand_n) == null || isNaN(parseFloat(rand_n))) 
+               {
+                 alert("'" + rand_n + "' is illegal. You must input a number!");
+                }
+
+             else if (parseFloat(rand_n) < 1 || parseFloat(rand_n) > 100)
+                {
+                  alert("You have entered '" + rand_n + "'. Entry must range between 1 to 100.");
+               
+                 }
+            
 
             else 
             {
-              alert("Fahrenheit temperature is " + f);
+                sum_n = 0;
+                   for( cnt = 0; cnt <= rand_n; cnt++) sum_n += cnt;
+                   alert("The sum of the numbes from 1 through " + rand_n + " is " + sum_n);
             }
-        }  while (f != exitNumber);
-
-
-
-         
+           again = prompt("Repeat entries?", "y");
+             
+        }
+        while (again == "y");
     </script>
 </head>
 <body>
     <main>
-        <h1>Temperature converter</h1>
+        <h1>Create a Sum of Numbers application</h1>
     </main>
 </body>
 </html>
