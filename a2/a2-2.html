@@ -1,79 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">	
-    <title>Show letter grade</title>
+    <meta charset="UTF-8">  
+    <title>Convert from Fahrenheit to Centigrade</title>
 
 <script>
-       let grade_n, grade_l;
-       const exitNumber = 999;
-    while(parseFloat(grade_n) != parseFloat (exitNumber))
-    {
-        grade_n = prompt("Enter number grade from 0 to 100. Or enter '999' to end the application!");
-
-        if (parseFloat(grade_n) == parseFloat(exitNumber))
-           {  
-             alert("You have entered '" + parseFloat(grade_n) + "'. The application will be ended.");
-           } 
-
-        else if (parseFloat(grade_n) == null || isNaN(parseFloat(grade_n))) 
-           {
-               alert("'" + grade_n + "' is illegal. You must input a number!");
-            }
-
-        else if (parseFloat(grade_n) < 0 || parseFloat(grade_n) > 100)
-            {
-               alert("You have entered '" + grade_n + "'. Entry must range between 0 to 100.");
-              
-            }
-        else if(parseFloat(grade_n) < 60)
-
-                { const grade_l = "F";
-                 alert("Number grade is " + parseFloat(grade_n) + "\n" + `Letter grade is ${grade_l}.` );
-                 break;
-                }
-
-        else if(parseFloat(grade_n) >= 60 && parseFloat(grade_n) <= 67 )
-                
-                { const grade_l = "D";
-                  alert("Number grade is " + parseFloat(grade_n) + "\n" + `Letter grade is ${grade_l}.` );
-                  break;
-                }
-        else if(parseFloat(grade_n) >= 68 && parseFloat(grade_n) <= 79 )
-                
-                { const grade_l = "C";
-                  alert("Number grade is " + parseFloat(grade_n) + "\n" + `Letter grade is ${grade_l}.` );
-                  break;
-                }
-        else if(parseFloat(grade_n) >= 80 && parseFloat(grade_n) <= 87 )
-                
-                { const grade_l = "B";
-                  alert("Number grade is " + parseFloat(grade_n) + "\n" + `Letter grade is ${grade_l}.` );
-                  break;
-                }
-        else if (parseFloat(grade_n) >= 88 && parseFloat(grade_n) <= 100 )
-                
-                { const grade_l = "A";
-                  alert("Number grade is " + parseFloat(grade_n) + "\n" + `Letter grade is ${grade_l}.` );
-                  break;
-                
-                }
-            else
-              {
-                
-                alert("Please try the application sometime later.");
-                break;
-              } 
-        
-            
-    }
-       
-         
+    const exitNumber = 999;
+    var grade_num;
+    let grade_l;
+    do {
+        var grade_n = prompt("Enter number grade from 0 to 100. Or enter '999' to end the application!");
+        grade_num = parseFloat(grade_n);
+        if (grade_num == exitNumber)
+        {  
+            alert("You have entered '" + exitNumber + "'. The application will be ended.");
+        }
+        else if (grade_n == null || isNaN(grade_num))
+        {
+            alert("'" + grade_n + "' is illegal. You must input a number!");
+        }
+        else if (grade_num < 0 || grade_num > 100)
+        {
+            alert("You have entered '" + grade_nun  + "'. Entry must range between 0 to 100.");
+        }
+        else {
+               grade_l =  grade_num <  60 ? "F" :
+                          grade_num <= 67 ? "D" :
+                          grade_num <= 79 ? "C" :
+                          grade_num <= 87 ? "B" :
+                                            "A" ;
+                                             
+            alert("Number grade is " + grade_num + "\n" + `Letter grade is ${grade_l}.` );
+        }
+    } while (grade_num != exitNumber);
 </script>
 </head>
 <body>
     <main>
-        <h1>Convert from numbers grades to letter grades</h1>
+        <h1>Show letter grade</h1>
     </main>
 </body>
 </html>
