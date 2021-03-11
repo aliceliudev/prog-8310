@@ -1,44 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-    <meta charset="UTF-8">	
-    <title>Create a Sum of Numbers application</title>
 <head>
-    <title>Sum of Numbers</title>
-    <script>
-        var again = "y";
-        let rand_n, sum_n;
-        let cnt = 0;
-        
-        do {
-          rand_n = prompt("Enter any top number to sum.");
+    <meta charset="UTF-8">	
+    <title>Convert from Fahrenheit to Centigrade</title>
 
-           if (parseFloat(rand_n) == null || isNaN(parseFloat(rand_n))) 
-               {
-                 alert("'" + rand_n + "' is illegal. You must input a number!");
-                }
+<script>
+       let rand_n, sum_n;
+       let cnt = 0;
+       sum_n = 0;
+      var rand_answ; 
+      const exit_answ = "f";
+    while(rand_answ = true)
+    {
+        rand_n = prompt("Enter any number to sum!");
 
-             else if (parseFloat(rand_n) < 1 || parseFloat(rand_n) > 100)
-                {
-                  alert("You have entered '" + rand_n + "'. Entry must range between 1 to 100.");
-               
-                 }
-            
+        if (rand_answ != exit_answ))
+           {  
+             alert("You have entered '" + rand_n + "'. The application will be ended.");
+           } 
 
-            else 
-            {
-                sum_n = 0;
-                   for( cnt = 0; cnt <= rand_n; cnt++) sum_n += cnt;
-                   alert("The sum of the numbes from 1 through " + rand_n + " is " + sum_n);
+        else if (parseFloat(rand_n) == null || isNaN(parseFloat(rand_n))) 
+           {
+               alert("'" + rand_n + "' is illegal. You must input a number!");
             }
-           again = prompt("Repeat entries?", "y");
-             
-        }
-        while (again == "y");
-    </script>
+
+        else if (parseFloat(rand_n) < 1 || parseFloat(rand_n) > 100)
+            {
+               alert("You have entered '" + rand_n + "'. Entry must range between 1 to 100.");
+               
+            }
+        else 
+            {
+              
+              while (cnt <= rand_n )
+              {
+                  sum_n += cnt;
+                  cnt++;
+              }
+
+             //alert(sum_n); 
+
+
+             alert("The sum of the numbes from 1 through " + rand_n + " is " + sum_n);
+            rand_answ = prompt("Do another sum? Enter 'y' or 'Y' to continue another sum."); 
+             //if (answ != "y" || answ != "Y") 
+             //{break;}
+            }
+    }
+    
+     
+    
+         
+</script>
 </head>
 <body>
     <main>
-        <h1>Create a Sum of Numbers application</h1>
+        <h1>Temperature converter</h1>
     </main>
 </body>
 </html>
