@@ -16,7 +16,7 @@ var convertTemp = function() {
    }
   else {
 
-    if ($("to_celsius").checked) {
+ if ($("to_celsius").checked) {
         temp_f = parseFloat(f);
         temp_c = (temp_f - 32) * 5/9;
 
@@ -24,11 +24,11 @@ var convertTemp = function() {
     }
   else if ($("to_fahrenheit").checked)
   
-   {       temp_c = parseFloat(f);
+    {       temp_c = parseFloat(f);
           temp_f = temp_c* (9/5) + 32;
           $("degrees_computed").value = Math.round(temp_f); 
-   }
- }
+    }
+  }
 }
 
 var toCelsius = function() {
