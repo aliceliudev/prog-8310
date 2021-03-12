@@ -4,50 +4,48 @@ var $ = function(id) {
 
 var makeChange = function(cents){
     let quarters, dimes, nickels, pennies;
+   
     //quarter
 
     if (cents > 25){
-
         quarters = Math.floor(cents/25);
         cents = cents - (quarters *25)
-    document.getElementById("quarters").value = quarters;
+        document.getElementById("quarters").value = quarters;
+    }
+        
+    else {
+          document.getElementById("quarters").value = 0;
+    }   
     
-        }
-        
-     else {
-        document.getElementById("quarters").value = 0;
-     }   
-    //
+    //dimes
 
-
-
-
-        if (cents > 9){
-        
-        dimes = Math.floor(cents/10);
-        
+    if (cents > 9){   
+        dimes = Math.floor(cents/10);   
         cents=Math.floor(cents%10);
-        document.getElementById("dimes").value = dimes;
+        document.getElementById("dimes").value = dimes;     
+    }
+    else {
+          document.getElementById("dimes").value = 0;   
+    }
         
-        }else{
-            document.getElementById("dimes").value = 0;
-        }
-        
-        if (cents > 4){
-        
+    //nickels
+    
+    if (cents > 4){   
         nickels = Math.floor(cents/5);
         cents=Math.floor(cents%5);
         document.getElementById("nickels").value = nickels;
-        } else {
-            document.getElementById("nickels").value = 0;
-        }
-        
-        if (cents > 0) {
+    } 
+    else {
+            document.getElementById("nickels").value = 0;     
+    }
+    
+    // pennies
+
+    if (cents > 0) {
         
         pennies = Math.floor(cents/1);
-        document.getElementById("pennies").value = pennies;
-        
-        }
+        document.getElementById("pennies").value = pennies;   
+    }
 }
 
 
@@ -70,7 +68,7 @@ var processEntry = function() {
 
 
 window.onload = function() {
-    //document.getElementById("calculate").onclick = processEntry;
+   
     document.getElementById("calculate").onclick = processEntry;
 }
 
