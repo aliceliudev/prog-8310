@@ -2,21 +2,26 @@ let _operators;
 let _numbers;
 let _display;
 let isOperator = false;
+let isParenthesis = true;
+let parenthesis;
 let _clear;
 let _backspace;
 let _clearAll;
 let _percent;
 let _log;
 let _exponent;
-
 let _sqrt;
 let _negate;
-
+let _pi;
+let _sin;
+let _cos;
+let _tan;
 //onload to feach buttons
 
 window.onload = function() {
     _operators = document.querySelectorAll('.button-op');   //Store all the operators in variable
     _numbers = document.querySelectorAll('.button-num');
+    parenthesis = document.querySelectorAll(".button-num1");
     _display = document.querySelector('#output');
     // _display.value = eval("1+1");
     _eval = document.querySelector('#eval');
@@ -37,6 +42,11 @@ window.onload = function() {
 
     _negate = document.querySelector('#negate');
 
+    _pi = document.querySelector('#pi');
+    _sin = document.querySelector('#sin');
+    _cos = document.querySelector('#cos');
+    _tan = document.querySelector('#tan');
+
     _operators.forEach(function(_operator) {
         //console.log(_operator);
         _operator.onclick = operatorClick;
@@ -47,6 +57,10 @@ window.onload = function() {
 
         _number.onclick = numberClick;
 
+    });
+
+    parenthesis.forEach(function(parenthesis1) {
+        parenthesis1.onclick = calParenthesis;
     });
 
     _eval.onclick = evaluateClick;
@@ -61,8 +75,11 @@ window.onload = function() {
     _log.onclick = logClick;
     _exponent.onclick = exponentClick;
     _sqrt.onclick = sqrtClick;
-
     _negate.onclick = negateClick;
+    _pi.onclick = PiClick;
+    _sin.onclick = sinClick;
+    _cos.onclick = cosClick;
+    _tan.onclick = tanClick;
 
 
 };
@@ -77,12 +94,22 @@ var operatorClick = function(event) {
         _display.value += operator;
     }
     isOperator = true;
+    isParenthesis = true;
 };
 // function for numbers
 var numberClick = function(event) {
     //console.log(event.target.getAttribute('data-op'));
     _display.value += event.target.getAttribute('data-num');
     isOperator = false;
+    isParenthesis = true;
+};
+
+var calParenthesis = function(event) {
+    if (isParenthesis == true) {
+        _display.value += event.target.getAttribute('data-par');
+        isParenthesis = false;
+        isOperator = false;
+    }
 };
 
 // function for buttons
@@ -95,7 +122,7 @@ var opButton = function(event) {
 };
 
 // function for eval
-var evaluateClick = function() {
+/*var evaluateClick = function() {
 
     if ((_display.value).indexOf("^") > -1) {
         var base = (_display.value).slice(0, (_display.value).indexOf("^"));
@@ -105,25 +132,12 @@ var evaluateClick = function() {
     } else {
         _display.value = eval(_display.value);
     }
-};
+}; */
 
-
-/*
 var evaluateClick = function() {
-const evalstring = 
-
-_display.value = eval(_display.value);
-
-}
-
-
-*/
-
-
-
-
-
-
+    const evalString = _display.value.replace("^", "**");
+    _display.value = eval(evalString);
+};
 
 
 //function for clear button
@@ -133,8 +147,18 @@ var clearClick = function() {
 
 
 var backClick = function() {
-    _display.value = _display.value.substring(0, _display.value.length - 1);
-    isOperator = false;
+    //_display.value = _display.value.substring(0, _display.value.length - 1);
+    //isOperator = false;
+    // var backValue = _display.value;
+    //backValue = backValue.split("");
+    // backValue.pop();
+    //console.log(backValue.pop());
+
+    // backValue.pop();
+    //backValue = backValue.slice(0, -1);
+    // _display.value = backValue.toString();
+    _display.value = _display.value.slice(0, -1);
+
 
 };
 
@@ -163,7 +187,7 @@ var sqrtClick = function() {
 
 
 var negateClick = function() {
-    if (_display.value.charAt(0) === "-") {
+    if (_display.value.charAt(0) == "-") {
         _display.value = _display.value.slice(1);
     } else {
         _display.value = "-" + _display.value;
@@ -171,16 +195,20 @@ var negateClick = function() {
 };
 
 
-/*var exponentClick1 = function() {
-    if ((display.value).indexOf("^") > -1) {
-        var base = (display.value).slice(0, (display.value).indexOf("^"));
-        var exponent = (display.value).slice((display.value).indexOf("^") + 1);
-        display.value = eval("Math.pow(" + base + "," + exponent + ")");
-    }
+var PiClick = function() {
+    // _display.value += target.getAttribute('button-pi');
+    isOperator = false;
 
+    _display.value = (_display.value * Math.PI.toFixed(8));
 
-}; */
+};
+var sinClick = function() {
+    _display.value = Math.sin(_display.value);
+};
+var cosClick = function() {
+    _display.value = Math.cos(_display.value);
+};
+var tanClick = function() {
+    _display.value = Math.tan(_display.value);
 
-//function deleteChar(input) {
- //   _display.value = _display.value.substring(0, _display.value.length - 1);
-//}
+};

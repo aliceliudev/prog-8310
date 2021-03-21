@@ -25,7 +25,6 @@ var displayCurrentTime = function() {
         _ampm = "PM";
     }
 
-
     $("seconds").innerHTML = _seconds;
     $("minutes").innerHTML = _minutes;
     $("hours").innerHTML = _hours;
@@ -40,6 +39,8 @@ var padSingleDigit = function(num) {
 
 var tickStopwatch = function() {
     // increment milliseconds by 10 milliseconds
+
+
     elapsedMilliseconds += 10;
     if (elapsedMilliseconds == 1000) {
         elapsedSeconds += 1;
@@ -51,8 +52,8 @@ var tickStopwatch = function() {
         elapsedMinutes += 1;
         elapsedSeconds = 0;
 
-
     }
+
     $("s_minutes").innerHTML = elapsedMinutes;
     $("s_seconds").innerHTML = elapsedSeconds;
     $("s_ms").innerHTML = elapsedMilliseconds;
@@ -67,28 +68,19 @@ var tickStopwatch = function() {
 
 
 
-
-
 // event handler functions
 var startStopwatch = function(evt) {
-
-    evt.preventDefault();
-    tickStopwatch();
-
-    //no need to check
-    //    if (elapsedMilliseconds != 0) {
-    //        stopwatchTimer = setInterval(tickStopwatch, 10);
-    //    }
-
-    stopwatchTimer = setInterval(tickStopwatch, 10);
-
     // prevent default action of link
-
     // do first tick of stop watch and then set interval timer to tick 
     // stop watch every 10 milliseconds. Store timer object in stopwatchTimer 
     // variable so next two functions can stop timer.
+    evt.preventDefault();
 
+    tickStopwatch();
 
+    if (elapsedMilliseconds != 0) {
+        stopwatchTimer = setInterval(tickStopwatch, 10);
+    }
 
 };
 
@@ -113,10 +105,10 @@ var resetStopwatch = function(evt) {
     $("s_ms").innerHTML = 0;
 
     //reset variables
+
     elapsedMinutes = 0;
     elapsedSeconds = 0;
     elapsedMilliseconds = 0;
-
 
 };
 
@@ -124,17 +116,13 @@ window.onload = function() {
     // set initial clock display and then set interval timer to display
     // new time every second. Don't store timer object because it 
     // won't be needed - clock will just run.
-    // displayCurrentTime();
-    //setInterval(displayCurrentTime, 1000);
-    //tickStopwatch();
-    //setInterval(tickStopwatch, 1000);
-    // set up stopwatch event handlers
 
     displayCurrentTime();
     setInterval(displayCurrentTime, 1000);
-    $("start").onclick = startStopwatch;
-    $("stop").onclick = stopStopwatch;
-    $("reset").onclick = resetStopwatch;
-
-
+    var _startBtn = $("start");
+    var _restBtn = $("reset");
+    var _stopBtn = $("stop");
+    _stopBtn.onclick = stopStopwatch;
+    _restBtn.onclick = resetStopwatch;
+    _startBtn.onclick = startStopwatch;
 };
