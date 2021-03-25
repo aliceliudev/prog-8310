@@ -1,25 +1,81 @@
 $(document).ready(function() {
 	var emailPattern = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}\b/;
-	/*
-	$(":radio").change(
-	
-	   function() {
-	
-	  var radioBnt = $(":radio:checked").val();
-	  if (radioBnt == "")
-	
-	
-	
-	
-	
-	   }  // end function
-	);  //end change
-	*/
 
 	$("#reservation_form").submit(
 		function(event) {
 
 			var isValid = true;
+
+			$("#arrival_date").focus();
+
+			//Validate Arrive date
+
+			var arriveDate = $("#arrival_date").val().trim();
+
+			var arrivalPattern = /^((0?[1-9]|1[012])[- /.](0?[1-9]|[12][0-9]|3[01])[- /.](19|20)?[0-9]{2})*$/;
+
+
+			if (arriveDate == "") {
+
+				$("#arrival_date").next().text("This field is required.");
+
+				isValid = false;
+
+			}
+			else if (!arrivalPattern.test(arriveDate)) {
+				$("#arrival_date").next().text("Enter a valid arrival date.");
+				isValid = false;
+
+			}
+
+			else {
+				$("#arrival_date").next().text("");
+			}
+
+			$("#arrival_date").val(arriveDate);
+
+			// validate the nights
+
+			var nightNum = $("#nights").val().trim();
+
+			if (nightNum == "") {
+				$("#nights").next().text("This field is required.");
+				isValid = false;
+			}
+
+			else if (nightNum < 1 || nightNum > 366) {
+				$("#nights").next().text("The nights should be within 1-365.");
+				isValid = false;
+			}
+
+			else if (isNaN(parseInt(nightNum))) {
+				$("#nights").next().text("Enter a number for the nights!");
+				isValid = false;
+
+			}
+
+
+			else {
+				$("#nights").next().text("");
+			}
+			$("#nights").val(nightNum);
+
+
+			// Validate the name
+
+			var name = $("#name").val().trim();
+			if (name == "") {
+
+				$("#name").next().text("This field is required.");
+
+				isValid = false;
+
+			}
+			else {
+				$("#name").next().text("");
+				$("#name").val(name);
+			}
+
 
 			//validate the email entry with a regular expression
 
@@ -29,8 +85,8 @@ $(document).ready(function() {
 				$("#email").next().text("This field is required.");
 				isValid = false;
 			}
-			else if (!emailPattern.text(email)) {
-				$("#email").next().text("You must enter a valid email address.");
+			else if (!emailPattern.test(email)) {
+				$("#email").next().text("Enter a valid email address.");
 				isValid = false;
 
 			}
@@ -42,38 +98,30 @@ $(document).ready(function() {
 
 			$("#email").val(email);  // return the trimmed email address
 
-			// validate the nights
+			// Validate the phone number
 
-			var nightNum = $("#nights").val().trim();
-			if (isNaN(nightNum) == true) {
+			var phone = $("#phone").val().trim();
+			var phonePattern = /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/;
+			if (phone == "") {
 
-				$("#nights").val().text("You must enter a number for the nights!");
-				isValid = false;
-			}
-
-			else {
-				$("#nights").next().text("");
-			}
-			$("#nights").val(nightNum);
-
-			//Validate Arrive date
-
-			var arriveDate = $("#arrival_date").val().trim();
-			if (arriveDate == "") {
-
-				$("#arrival_date").next().text("This field is required.");
+				$("#phone").next().text("This field is required.");
 
 				isValid = false;
 
 			}
-			else {
-				$("#arrival_date").next().text("");
+
+			else if (!phonePattern.test(phone)) {
+				$("#phone").next().text("Enter a valid phone numer.");
+				isValid = false;
+
 			}
 
-			$("#arrival_date").val(arriveDate);
 
+			else {
+				$("#phone").next().text("");
+			}
 
-
+			$("#phone").val(phone);
 
 
 
@@ -83,41 +131,9 @@ $(document).ready(function() {
 				event.preventDefault();
 			}
 
-
-
 		}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	);  //end submit
-
-
-
-
-
-
-
-
-
-
 
 }); // end ready
 
