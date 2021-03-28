@@ -75,7 +75,7 @@ var operatorClick = function(event) {
 
 var sciOpClick = function(event) {
     const sciOp = event.target.getAttribute('id');
-    if (isNumber == false) {
+    if (isNumber == false || isOperator == true) {
         //console.log(sciOperator);
 
         _display.value += sciOp;
@@ -96,9 +96,15 @@ var PiClick = function() {
         isNumber = true;
         isOperator = false;
     }
-
-    else if (isNumber = true) {
+    else if (isNaN(_display.value) == false) {
         _display.value = _display.value + "*" + "π";
+        isOperator = false;
+        isNumber = false;
+
+    }
+
+    else {
+        _display.value = _display.value + "π";
         isOperator = false;
         isNumber = false;
 
@@ -141,6 +147,7 @@ var evaluateClick = function() {
     evalString = evalString.replaceAll("log(", "Math.log(");
     evalString = evalString.replaceAll("π", "3.14159265");
     _display.value = eval(evalString);
+
 };
 
 //function for clear button
