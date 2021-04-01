@@ -4,8 +4,7 @@ $(document).ready(function() {
         var random;
         if (!isNaN(max)) {
             random = Math.random(); //value >= 0.0 and < 1.0
-            random = Math.round(random * max); //value is an integer between 0 and max - 1
-            random = random + 1; //value is an integer between 1 and max
+            random = Math.round(random * max); //value is an integer between 0 and max 
         }
         return random;
     };
@@ -17,9 +16,7 @@ $(document).ready(function() {
         let password = "";
         let a = 0;
         let number = parseInt($("#num").val());
-
-
-        if (isNaN(number) || number == "" || num == null || num == 0) {
+        if (isNaN(number) || number == "" || number == null || number == 0) {
 
             alert("Please enter a valid number");
 
