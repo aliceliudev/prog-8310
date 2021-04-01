@@ -1,30 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Use Expanded JSON File</title>
     <link href="main.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<script>
-		$(document).ready(function(){
-			$.getJSON("team.json", function(data) {
-				$.each(data, function() {
-					$.each(this, function(key, value) {
-						$("#team").append(
-							"Name: " + value.full_name + "<br>" + 
-							"Title: " + value.title + "<br>" + 
-							"Bio: " + value.bio + "<br><br>"
-						);
-					});
-				}); 
-			});
-		});
+    <script>
+        $(document).ready(function() {
+            var html = "";
+
+            $.getJSON("team.json", function(data) {
+                $.each(data, function() {
+                    $.each(this, function(key, value) {
+
+                        html += "<img src=" + value.image + ">";
+                        html += "<h3>" + value.full_name + "</h3>";
+                        html += "<h3>" + value.title + "</h3>";
+                        html += "<p>" + value.tag_line + "</p>";
+
+                    });
+                    $("#team").html(html);
+
+                });
+            });
+        });
     </script>
 </head>
 
 <body>
     <header></header>
-    
+
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -34,13 +40,14 @@
             <li><a href="contactus.html">Contact Us</a></li>
         </ul>
     </nav>
-    
+
     <main>
         <h2>The Vecta Corp. Management Team</h2>
 
-		<div id="team"></div>
+        <div id="team"></div>
     </main>
-    
+
     <footer></footer>
 </body>
+
 </html>
