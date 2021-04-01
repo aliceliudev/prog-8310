@@ -9,20 +9,39 @@ $(document).ready(function() {
         }
         return random;
     };
-    
+
     $("#generate").click(function() {
-        $("#password").val( "" ); // clear previous entry
-    
+        $("#password").val(""); // clear previous entry
+
         var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz_-+!@";
-        
+        let password = "";
+        let a = 0;
+        let length = $("#num").val();
+
+
+        if (isNaN(length) || length == "" || num == null) {
+
+            alert("Please enter a valid number");
+
+        }
+
+        else {
+
+            for (a = 0; a < length; a++) {
+                password += chars.charAt(getRandomNumber(chars.length));
+            }
+
+            $("password").val = password;
+        }
+
     }); // end click()
-    
+
     $("#clear").click(function() {
-        $("#num").val( "" );
-        $("#password").val( "" );
+        $("#num").val("");
+        $("#password").val("");
         $("#num").focus();
     }); // end click()
-    
+
     // set focus on initial load
     $("#num").focus();
 }); // end ready()
