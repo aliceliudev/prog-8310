@@ -1,26 +1,12 @@
 let score = 0; highscore = 0;
 let _game;
-
+let _penguinAudio;
+let _yetiAudio;
 let _yeti, _penguins, _score, _current_score, _high_score;
+// Define audio files
+_penguinAudio = new Audio('penguin.mp3');
+_yetiAudio = new Audio('yeti.mp3');
 
-let clicked_penguins = [];
-const difficulty = {
-    easy: 3,
-    medium: 4,
-    hard: 5
-};
-
-
-const renderGame = function() {
-    const _gameHolder = document.querySelector('#gameHolder');
-    for (a = 0; a < difficulty; a++) {
-        for (b = 0; b < difficulty; b++) {
-            const _penguin = document.createElement('div');
-            _penguin.setAttribute('class', 'penguin');
-            _gameHolder.appendChild(_penguin);
-        }
-    }
-};
 
 $(document).ready(function() {
 
@@ -31,96 +17,98 @@ $(document).ready(function() {
     _current_score = document.querySelector("#current_score");
     _high_score = document.querySelector("#high_score");
     _score = document.querySelector("#score");
+    _game = document.querySelector("#game");
 
+    //Set highscore
 
-    //$("#yeti").mousedown(function() {
-    //   alert("Yaaaarrrr!");
-    // });
+    if (sessionStorage.getItem("highscore")) {
+        _high_score.innerHTML = sessionStorage.getItem("highscore");
+    } else {
+        _high_score.innerHTML = 0;
+    }
 
-    //Jquery event handling
-
-    /* $(".penguin").mousedown(function(){
- 
-         console.log('penguin clicked with jquery');
- 
-     });*/
-
-    // JS Event handling
+    // Penguin click and Yeti click
 
     _penguins.forEach(function(_penguin) {
         _penguin.onclick = penguinClick;
+
     });
 
     _yeti.onclick = yetiClick;
 
-
-
-
 });
 
 
-
+//Define Penguin click
 const penguinClick = function() {
 
-    /*if (!this.classList.contains('up')) {
-        this.classList.add('up');
-        clicked
-        //onsole.log('penguin click');
-        score += 1;
-        _current_score.innerHTML = score;
-    }
-        */
-
-
-    /*if (!this.classList.contains('up')) {
-        this.classList.add('up');
-        score += 1;
-        _current_score.innerHTML = score;
-    } */
-    /*if (this.getAttribute('class').indexOf('up') > -1) {
-        this.classList.add('up');
-        score += 1;
-        _current_score.innerHTML = score;
-    }
-   */
+    //Caculate the score and add the "data-up" attribute the the elements that have been clicked.
     if (!this.hasAttribute('data-up')) {
         this.setAttribute('data-up', '');
         score += 1;
         _current_score.innerHTML = score;
-
+        console.log(this.id.slice(-1));
+        changeImage(this, this.id.slice(-1));
+        _penguinAudio.play();
 
     }
-
 };
 
+// Function for changing background images.
 
+function changeImage(div, i) {
+    div.style.backgroundImage = "url('images/penguin_" + i + ".png')";
+
+}
+
+
+// Yeti click function
 
 const yetiClick = function() {
-    console.log('yeti click');
-    //setTimeout(endGame, 2000);
+
+    // Removethe "data-up" attribute.
+    let i; j = 1;
+    for (i = 0; i < 8; i++) {
+        _penguins[i].removeAttribute('data-up');
+        _penguins[i].style.backgroundImage = "url('images/mound_" + j + ".png')";
+        j++;
+    }
+
+    _yetiAudio.play();
+
     alert('You lose');
     endGame();
-
-
-
 };
 
 
 const endGame = function() {
+
     // track high score;
 
+    if (!sessionStorage.getItem("highscore")) {
+        sessionStorage.setItem("highscore", score);
+    }
+    else {
+        (sessionStorage.getItem("highscore") >= score) ? "" : sessionStorage.setItem("highscore", score);
+
+
+    }
     //alert user of their score
+    _high_score.innerHTML = sessionStorage.getItem("highscore");
 
     //reset game
+    resetGame();
 
 };
 
 
 const resetGame = function() {
-    score = 0;
-    _score.innerHTML = score;
 
+    const yeti_index = Math.round(Math.random() * (_penguins.length - 1));
     //shuffle penguin yetti
-    renderGame();
+    _game.insertBefore(_yeti, _game.children[yeti_index]);
+    score = 0;
+    _current_score.innerHTML = score;
 
 };
+

@@ -39,10 +39,10 @@ body {
     background-image:url('../images/mound_1_hover.png');
  
 }
-#penguin1:active {
+#penguin1:active{
     background-image:url('../images/penguin_1.png');
 }
-#penguin1 {
+#penguin1{
   
     background-image:url('../images/mound_1.png');
 }
@@ -127,6 +127,7 @@ body {
     background-image:url('../images/mound_9_hover.png');
 
 }
+
 #yeti:active {
     background-image:url('../images/yeti.png');
 }
