@@ -76,7 +76,7 @@ const yetiClick = function() {
 
     _yetiAudio.play();
 
-    alert('You lose');
+    alert('You lose!');
     endGame();
 };
 
