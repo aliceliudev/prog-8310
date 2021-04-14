@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore USA</title>
+    <link rel="stylesheet" href="css/global_css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Lobster+Two|Lato" rel="stylesheet" </head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+</head>
+
+<body>
+    <div id="global_nav">
+        <nav>
+            <div class="logo">
+                <img src="../images/logo.jpg" alt="logo">
+                <h2>Explore <span class="orange">USA</span></h2>
+            </div>
+            <div id="links">
+                <div id="page_links">
+                    <ul>
+                        <li>
+                            <a href="index.html" class="active">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="destination.html">
+                                Destination
+                            </a>
+                        </li>
+                        <li>
+                            <a href="todo_list.html">
+                                To do list
+                            </a>
+                        </li>
+                        <li>
+                            <a href="blog.html">
+                                Blog
+                            </a>
+                        </li>
+                        <li>
+                            <a href="about_us.html">
+                                About Us
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="search">
+                    <p>Search</p>
+                </div>
+            </div>
+        </nav>
+        <div class="chat">
+            <button id="chat">
+                chat
+            </button>
+        </div>
+    </div>
+
+    <main>
+
+        <div id="container">
+            <h2>Get Your Daily Quote</h2>
+            <div id="quoteContainer">
+                <p></p>
+                <p id="quoteGenius"></p>
+            </div>
+            <!--end quoteContainer-->
+
+            <div id="buttonContainer">
+                <a href="#" id="quoteButton">Quote Me</a>
+            </div>
+            <!--end buttonContainer-->
+
+
+        </div>
+        <!--end container -->
+        <div id="wrapper">
+            <svg version="1.1" id="clock-icon" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 300 300"
+                enable-background="new 0 0 300 300" xml:space="preserve">
+                <g class="clock">
+                    <g>
+                        <g>
+                            <path fill="#7A7A7A"
+                                d="M99.7,120.9c-0.4,0-0.9-0.2-1.2-0.6c-2.7-3.3-4-7.5-3.5-11.8s2.5-8.1,5.8-10.8c2.9-2.3,6.5-3.6,10.1-3.6
+                          c4.9,0,9.4,2.2,12.5,5.9c0.5,0.6,0.4,1.6-0.2,2.1l-22.6,18.4C100.4,120.8,100,120.9,99.7,120.9z" />
+                            <path fill="#231F20" d="M111,95.7c4.2,0,8.4,1.8,11.3,5.4l-22.6,18.4c-5.1-6.2-4.1-15.4,2.1-20.5C104.5,96.8,107.7,95.7,111,95.7
+                           M111,92.7c-4,0-8,1.4-11.1,3.9c-7.5,6.1-8.6,17.2-2.5,24.7c0.5,0.6,1.2,1,2,1.1c0.1,0,0.2,0,0.3,0c0.7,0,1.4-0.2,1.9-0.7
+                          l22.6-18.4c1.3-1,1.5-2.9,0.4-4.2C121.2,95,116.3,92.7,111,92.7L111,92.7z" />
+                        </g>
+                        <path opacity="0.2" fill="#FFFFFF" d="M99.1,103.3c5.8-4.7,14.1-4.2,19.3,0.9l3.9-3.2c-5.1-6.2-14.2-7.2-20.5-2.1
+                      c-2,1.6-3.4,3.7-4.3,5.9C98,104.3,98.5,103.8,99.1,103.3z" />
+
+                        <path fill="#CCCCCC" stroke="#231F20" stroke-width="3" stroke-linecap="round"
+                            stroke-linejoin="round" stroke-miterlimit="10" d="
+                      M119.5,114.6l-6.2,5c-0.4,0.3-1.1,0.3-1.4-0.1l-3.1-3.9c-0.3-0.4-0.3-1.1,0.1-1.4l6.2-5c0.4-0.3,1.1-0.3,1.4,0.1l3.1,3.9
+                      C120,113.6,120,114.2,119.5,114.6z" />
+                    </g>
+                    <g>
+                        <g>
+                            <path fill="#7A7A7A" d="M200.3,120.9c-0.3,0-0.7-0.1-0.9-0.3l-22.6-18.4c-0.3-0.3-0.5-0.6-0.5-1s0.1-0.8,0.3-1.1
+                          c3.1-3.8,7.6-5.9,12.5-5.9c3.7,0,7.3,1.3,10.1,3.6c3.3,2.7,5.4,6.5,5.8,10.8c0.4,4.3-0.8,8.4-3.5,11.8
+                          C201.2,120.7,200.7,120.9,200.3,120.9z" />
+                            <path fill="#231F20" d="M189,95.7c3.2,0,6.5,1.1,9.2,3.3c6.2,5.1,7.2,14.2,2.1,20.5L177.7,101C180.6,97.5,184.8,95.7,189,95.7
+                           M189,92.7L189,92.7c-5.3,0-10.3,2.4-13.6,6.5c-1,1.3-0.9,3.2,0.4,4.2l22.6,18.4c0.5,0.4,1.2,0.7,1.9,0.7c0.1,0,0.2,0,0.3,0
+                          c0.8-0.1,1.5-0.5,2-1.1c6.1-7.5,5-18.6-2.5-24.7C197,94.1,193,92.7,189,92.7L189,92.7z" />
+                        </g>
+                        <g opacity="0.2">
+                            <path fill="#FFFFFF" d="M198.2,99c-3.3-2.7-7.3-3.7-11.2-3.1c2.5,0.4,5,1.4,7.2,3.1c5.5,4.5,6.9,12.3,3.5,18.3l2.6,2.1
+                          C205.4,113.2,204.4,104,198.2,99z" />
+                        </g>
+
+                        <path fill="#CCCCCC" stroke="#231F20" stroke-width="3" stroke-linecap="round"
+                            stroke-linejoin="round" stroke-miterlimit="10" d="
+                      M185,109.1l6.1,5.1c0.4,0.4,0.5,1,0.1,1.4l-3.2,3.8c-0.4,0.4-1,0.5-1.4,0.1l-6.1-5.1c-0.4-0.4-0.5-1-0.1-1.4l3.2-3.8
+                      C183.9,108.8,184.5,108.8,185,109.1z" />
+                    </g>
+
+                    <circle fill="#3793EF" stroke="#231F20" stroke-width="3" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-miterlimit="10" cx="150" cy="156" r="53.3" />
+                    <g>
+                        <path fill="#FFFFFF" d="M150,200.6c-24.6,0-44.6-20-44.6-44.6c0-24.6,20-44.6,44.6-44.6s44.6,20,44.6,44.6
+                      C194.6,180.6,174.6,200.6,150,200.6z" />
+                        <path fill="#231F20" d="M150,113c23.8,0,43.1,19.3,43.1,43.1c0,23.8-19.3,43.1-43.1,43.1s-43.1-19.3-43.1-43.1
+                      C106.9,132.2,126.2,113,150,113 M150,110c-25.4,0-46.1,20.7-46.1,46.1s20.7,46.1,46.1,46.1s46.1-20.7,46.1-46.1S175.4,110,150,110
+                      L150,110z" />
+                    </g>
+
+                    <polyline fill="#FFFFFF" stroke="#231F20" stroke-width="3" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-miterlimit="10" points="
+                  150,132.8 150,156 163.3,156 	" />
+
+                    <circle fill="#FFFFFF" stroke="#231F20" stroke-width="3" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-miterlimit="10" cx="150" cy="120.6" r="1.1" />
+
+                    <circle fill="#FFFFFF" stroke="#231F20" stroke-width="3" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-miterlimit="10" cx="150" cy="191.5" r="1.1" />
+
+                    <circle fill="#FFFFFF" stroke="#231F20" stroke-width="3" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-miterlimit="10" cx="114.5" cy="156" r="1.1" />
+
+                    <line fill="#FFFFFF" stroke="#231F20" stroke-width="3" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-miterlimit="10" x1="115.7" y1="196.8" x2="106" y2="209.3" />
+
+                    <line fill="#FFFFFF" stroke="#231F20" stroke-width="3" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-miterlimit="10" x1="184" y1="197.1" x2="194" y2="209.3" />
+
+                    <line fill="#FFFFFF" stroke="#231F20" stroke-width="3" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-miterlimit="10" x1="150" y1="102.7" x2="150" y2="96.2" />
+                    <path fill="#F4F4F4" d="M172,119c9.5,7.9,15.6,19.8,15.6,33.1c0,23.8-19.3,43.1-43.1,43.1c-8,0-15.5-2.2-22-6
+                  c7.5,6.2,17,9.9,27.5,9.9c23.8,0,43.1-19.3,43.1-43.1C193.1,140.3,184.6,126.5,172,119z" />
+
+                    <circle fill="#FFFFFF" stroke="#231F20" stroke-width="3" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-miterlimit="10" cx="185.5" cy="156" r="1.1" />
+
+                    <path fill="#3793EF" stroke="#231F20" stroke-width="3" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-miterlimit="10"
+                        d="
+                  M155,95.7h-10c-0.6,0-1-0.4-1-1v-4c0-0.6,0.4-1,1-1h10c0.6,0,1,0.4,1,1v4C156,95.2,155.5,95.7,155,95.7z" />
+                </g>
+            </svg>
+
+
+
+            <script type="text/javascript" src="js/index.js"></script>
+
+    </main>
+
+    <footer>
+        <div id="copy_right">
+            <div class="logo full_width">
+                <img src="../images/logo.jpg" alt="logo">
+                <h2>Explore <span class="orange">USA</span></h2>
+            </div>
+            <div class="line"></div>
+            <div id="contact_info">
+                <div class="contact_us">
+                    <p>
+                        Contact Us: 888-555-234
+                    </p>
+                    <p>
+                        E-mail: man3@gmai.com
+                    </p>
+                    <div id="social_link">
+                        <div class="circle">
+                            facebook
+                        </div>
+                        <div class="circle">
+                            instagram
+                        </div>
+                        <div class="circle">
+                            twitter
+                        </div>
+                    </div>
+                </div>
+                <div class="line"></div>
+                <div>
+                    <form action="#" id="news_letter">
+                        <label for="news">News letter:</label>
+                        <input type="text" id="news" placeholder="Enter your email">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

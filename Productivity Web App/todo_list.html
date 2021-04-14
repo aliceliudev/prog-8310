@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list App</title>
+    <link rel="stylesheet" href="css/global_css/main.css">
+    <link rel="stylesheet" href="css/local_css/todo.css">
+    <link rel="stylesheet" href="fonts/css/fontawesome.min.css">
+    <link rel="stylesheet" href="fonts/css/all.css">
+    <script src="https://use.fontawesome.com/9cef78d00b.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="js/todo.js"></script>
+
+</head>
+
+<body>
+    <div id="global_nav">
+        <nav>
+            <div class="logo">
+                <img src="/images/logo.jpg" alt="logo">
+                <h2>Explore <span class="orange">USA</span></h2>
+            </div>
+            <div id="links1">
+                <div id="page_links">
+                    <ul>
+                        <li>
+                            <a href="index.html">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="destination.html">
+                                Destination
+                            </a>
+                        </li>
+                        <li>
+                            <a href="todo_list.html" class="active">
+                                To do list
+                            </a>
+                        </li>
+                        <li>
+                            <a href="blog.html">
+                                Blog
+                            </a>
+                        </li>
+                        <li>
+                            <a href="about_us.html">
+                                About Us
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="search">
+                    <p>Search</p>
+                </div>
+            </div>
+        </nav>
+        <div class="chat">
+            <button id="chat">
+                chat
+            </button>
+        </div>
+    </div>
+
+    <main>
+        <div class="container">
+            <h1>TO-DO LIST<i class="fa fa-pencil-square" aria-hidden="true"></i> </h1>
+
+            <input type="text" placeholder="What needs to be done?">
+
+            <div class="blackboard">
+                <dl class="paper">
+
+                    <li><i class="fa fa-thumb-tack" aria-hidden="true"></i>
+                        <span><i class="fa fa-eraser" aria-hidden="true"></i></span>Eat
+                    </li>
+
+                </dl>
+            </div>
+            <script type="text/javascript" src="js/todo.js"></script>
+
+    </main>
+
+    <footer>
+        <div id="copy_right">
+            <div class="logo full_width">
+                <img src="/images/logo.jpg" alt="logo">
+                <h2>Explore <span class="orange">USA</span></h2>
+            </div>
+            <div class="line"></div>
+            <div id="contact_info">
+                <div class="contact_us">
+                    <p>
+                        Contact Us: 888-555-234
+                    </p>
+                    <p>
+                        E-mail: man3@gmai.com
+                    </p>
+                    <div id="social_link">
+                        <div class="circle">
+                            facebook
+                        </div>
+                        <div class="circle">
+                            instagram
+                        </div>
+                        <div class="circle">
+                            twitter
+                        </div>
+                    </div>
+                </div>
+                <div class="line"></div>
+                <div>
+                    <form action="#" id="news_letter">
+                        <label for="news">News letter:</label>
+                        <input type="text" id="news" placeholder="Enter your email">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
