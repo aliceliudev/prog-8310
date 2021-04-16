@@ -52,6 +52,9 @@
 
 }
 
+
+
+
 .mid_div{
    
     position: relative;
@@ -199,4 +202,60 @@ main {
       
    }
 
+   
+   /* New function */
 
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #9b59b6;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.box {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+    width: 600px;
+    max-width: 100%;
+    text-align: center;
+}
+
+.box h2 {
+    margin-top: 0;
+}
+
+.box p {
+    margin: 2rem;
+}
+
+.box button {
+    background-color: rebeccapurple;
+    border: 0;
+    border-radius: 3px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+    color: white;
+    cursor: pointer;
+    font-family: inherit;
+    padding: 0.5rem 1rem;
+    transition: transform 0.1s linear;
+}
+
+.box button:active {
+    transform: scale(0.97);
+}
+
+.box button:focus {
+    outline: none;
+}
