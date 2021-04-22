@@ -48,7 +48,8 @@ $(function() {
     });
 
     $('.startOver').on('click', function() {
-        $('.tops').empty();
+
+        $(".tops").empty();
         $('.bottoms').empty();
         $('input[type=radio]').attr('checked', false);
     });

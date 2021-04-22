@@ -1,7 +1,7 @@
 let _operators;
 let _numbers;
 let _display;
-let isOperator = false;
+let isOperator = true;
 let isNumber = false; /* to allow the log, sin, sqrt, pi, cos, and tan */
 let parenthesis;
 let _clear;
@@ -154,7 +154,7 @@ var evaluateClick = function() {
 
 var clearClick = function() {
     _display.value = "";
-    isOperator = false;
+    isOperator = true;
     isParenthesis = true;
     isNumber = false;
 
