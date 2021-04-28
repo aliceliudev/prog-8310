@@ -75,12 +75,16 @@ function getWeather() {
             return response.json();
         })
         .then(res => {
-            console.log(res.name);
-            console.log(res.weather[0]);
-            console.log(res.main);
-            console.log(res.wind);
-            //         const _weather = document.querySelector('.time_updated');
-            // _time.innerHTML = data.time.updated;
+            console.log(res, 'res');
+            // console.log(res.name);
+            // console.log(res.weather[0]);
+            // console.log(res.main);
+            // console.log(res.wind);
+            // const _weather = $('.weather');
+            // _weather.innerHTML = res.weather[0];
+            $(".weather").html(res.weather[0].main);
+            $(".temp").html(res.main.temp);
+            $(".wind").html(res.wind.speed);
         });
 }
 getWeather();

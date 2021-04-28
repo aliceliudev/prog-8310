@@ -3,12 +3,22 @@ let status = {
     'door1': 'closed',
     'door2': 'closed',
     'door3': 'closed',
-    'door4': 'closed'
+    'door4': 'closed',
+    'light': 'off',
+    'kitchen': 'off'
 };
 $(document).ready(function() {
 
     $(".power").click(function() {
         $("body").toggleClass("active");
+
+    });
+
+
+    $(".door-switch").click(function() {
+        let $this = $(this);
+
+        openDoor($this.data('name'), $this);
 
     });
 
@@ -19,6 +29,8 @@ $(document).ready(function() {
 
         $("span").toggleClass("visible hidden");
     });
+
+    setInterval(monitor, 200);
 
 });
 
@@ -78,21 +90,54 @@ $(document).ready(function() {
 //     }
 // }
 
-function openDoor(id) {
+function openDoor(id, $btn) {
     console.log('-----------------', id);
-    $('#doorstatus').text('closed' + id);
-    if ($('#' + id).hasClass('open')) {
+
+    let $door = $('#' + id);
+
+    if ($door.hasClass('open')) {
         status[id] = 'closed';
-        $(id).removeClass('open');
+        $door.removeClass('open');
+
+        $btn.text('Open this door');
 
         // $('body').attr('class', 'off');
     } else {
-        $('#' + id).addClass('open');
+        $door.addClass('open');
         status[id] = 'open';
-        $('#doorstatus').text('open');
+
+        $btn.text('Close this door');
+
+        // $('#light-bulb').attr('class', 'on');
+    }
+
+    if ($light.hasClass('open')) {
+        status[id] = 'closed';
+        $door.removeClass('open');
+
+        $btn.text('Open this door');
+
+        // $('body').attr('class', 'off');
+    } else {
+        $door.addClass('open');
+        status[id] = 'open';
+
+        $btn.text('Close this door');
+
         // $('#light-bulb').attr('class', 'on');
     }
 }
+
+var monitor = function() {
+
+    for (let door in status) {
+        $('#status-' + door).text(status[door]);
+
+    }
+    $('#status-' + light).text(status[light]);
+    $('#status-' + kitchen).text(status[kitchen]);
+
+};
 
 
 

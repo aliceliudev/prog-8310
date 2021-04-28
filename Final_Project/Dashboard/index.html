@@ -30,7 +30,7 @@
                     <h3 class="room-title">Living Room door</h3>
                     <hr />
                     <div class="device-icon"><i class="fas fa-map-marker"></i></div>
-                    <a onclick="openDoor('door1')" class="button success-button toggle-button" id="btn_1" href="#">Close
+                    <a class="button success-button toggle-button door-switch" data-name="door1" href="#">Close
                         the
                         door</a>
                 </div>
@@ -41,8 +41,9 @@
                     <h3 class="room-title">Bedroom door</h3>
                     <hr />
                     <div class="device-icon"><i class="fas fa-map-marker"></i></div>
-                    <a onclick="openDoor('door2')" class="button success-button toggle-button enabled" id="btn_2"
-                        href="#">Close the door</a>
+                    <a class="button success-button toggle-button enabled door-switch" data-name="door2" href="#">Close
+                        the
+                        door</a>
                 </div>
             </div>
             <div class="col-md-3">
@@ -50,8 +51,9 @@
                     <h3 class="room-title">Basement door</h3>
                     <hr />
                     <div class="device-icon"><i class="fas fa-map-marker"></i></div>
-                    <a onclick="openDoor('door3')" class="button success-button toggle-button enabled" id="btn_3"
-                        href="#">Close the door</a>
+                    <a class="button success-button toggle-button enabled door-switch" data-name="door3" href="#">Close
+                        the
+                        door</a>
                 </div>
             </div>
             <div class="col-md-3">
@@ -59,8 +61,9 @@
                     <h3 class="room-title">Garage door</h3>
                     <hr />
                     <div class="device-icon"><i class="fas fa-map-marker"></i></div>
-                    <a onclick="openDoor('door4')" class="button success-button toggle-button enabled" id="btn_4"
-                        href="#">Close the door</a>
+                    <a class="button success-button toggle-button enabled door-switch" data-name="door4" href="#">Close
+                        the
+                        door</a>
                 </div>
             </div>
             <div class="col-md-3">
@@ -68,7 +71,8 @@
                     <h3 class="room-title">Bedroom light</h3>
                     <hr />
                     <div class="device-icon"><i class="fa fa-lightbulb-o"></i></div>
-                    <a class="button success-button toggle-button power" href="#">Turn on the light</a>
+                    <a class="button success-button toggle-button power door-switch" data-name="light" href="#">Turn on
+                        the light</a>
                 </div>
             </div>
             <div class="col-md-3">
@@ -76,7 +80,8 @@
                     <h3 class="room-title">Kitchen</h3>
                     <hr />
                     <div class="device-icon"><i class="fa fa-plug"></i></div>
-                    <a class="button success-button toggle-button" href="#">Turn on the Oven</a>
+                    <a class="button success-button toggle-button door-switch" data-name="kitchen" href="#">Turn on the
+                        Oven</a>
                 </div>
             </div>
         </div>
@@ -84,7 +89,7 @@
 
 
     <div class="container">
-        <div class="bulb">
+        <div class="bulb" id="bulb">
 
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
                 y="0px" viewBox="0 0 275.3 413.3" enable-background="new 0 0 275.3 413.3" xml:space="preserve">
@@ -168,7 +173,7 @@
         </div>
     </div>
     <!--The stove-->
-    <main class="app">
+    <main class="app" id="stove">
         <div class="dial-container">
 
             <svg class="dial" viewBox="0 0 400 400">
@@ -201,17 +206,17 @@
             <div class="status">
                 <h3>IoT summary:</h3>
                 <p class="locked">The Living Room door is </p><span class="hidden">locked</span><span class="visible"
-                    id="doorstatus">open</span>
-                <p class="locked">The Bedroom light is </p><span class="hidden">off</span><span
-                    class="visible">open</span>
-                <p class="locked">The Basement door is </p><span class="hidden">locked</span><span
-                    class="visible">open</span>
-                <p class="locked">The Garage door is </p><span class="hidden">locked</span><span
-                    class="visible">open</span>
-                <p class="locked">The Bedroom light is </p><span class="hidden">locked</span><span
-                    class="visible">open</span>
-                <p class="locked">The Kitchen appliance is </p><span class="hidden">off</span><span
-                    class="visible">open</span>
+                    id="status-door1"></span>
+                <p class="locked">The Bedroom light is </p><span class="hidden">off</span><span class="visible"
+                    id="status-door2"></span>
+                <p class="locked">The Basement door is </p><span class="hidden">locked</span><span class="visible"
+                    id="status-door3"></span>
+                <p class="locked">The Garage door is </p><span class="hidden">locked</span><span class="visible"
+                    id="status-door4"></span>
+                <p class="locked">The Bedroom light is </p><span class="hidden">locked</span><span class="visible"
+                    id="status-light"></span>
+                <p class="locked">The Kitchen appliance is </p><span class="hidden">off</span><span class="visible"
+                    id="status-kitchen"></span>
             </div>
 
         </div>
