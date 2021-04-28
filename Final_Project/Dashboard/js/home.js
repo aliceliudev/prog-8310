@@ -70,21 +70,23 @@ setInterval(setDate, 1000);
 
 
 function getWeather() {
-    fetch('http://api.openweathermap.org/data/2.5/weather?q=Waterloo&appid=2959361a7efa97a4a6f88bf074109176')
+    fetch('http://api.openweathermap.org/data/2.5/weather?q=Waterloo&appid=2959361a7efa97a4a6f88bf074109176&units=imperial')
         .then(response => {
             return response.json();
         })
         .then(res => {
             console.log(res, 'res');
+            console.log(res.name);
             // console.log(res.name);
             // console.log(res.weather[0]);
             // console.log(res.main);
             // console.log(res.wind);
             // const _weather = $('.weather');
             // _weather.innerHTML = res.weather[0];
+            $('.weatherReport h4').html(res.name + "'s weather");
             $(".weather").html(res.weather[0].main);
-            $(".temp").html(res.main.temp);
-            $(".wind").html(res.wind.speed);
+            $(".temp").html(res.main.temp + "&deg;F");
+            $(".wind").html(res.wind.speed + "m/h");
         });
 }
 getWeather();

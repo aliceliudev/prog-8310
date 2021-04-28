@@ -13,7 +13,10 @@ body {
     height: 100vh;
     margin-top:500px;
 }
-
+.boxes-wrap .boxes{
+    height: auto;
+    margin-top: 0;
+}
 .box {
     width: 240px;
     flex-shrink: 0;

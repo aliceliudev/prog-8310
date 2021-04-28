@@ -157,6 +157,8 @@ function updateDial(angle) {
     //const alpha = 40 + 2 * 45 * Math.abs(percentageOfFullRange - 0.5);
 
     tempDisplay.innerHTML = newTemp;
+    document.querySelector('.oven-temp-now').innerHTML = newTemp + "&deg;F";
+    console.log(newTemp);
     document.documentElement.style.setProperty("--temp-rotation", `${angle}deg`);
     //document.documentElement.style.setProperty("--temp-hue", hue);
     //document.documentElement.style.setProperty("--temp-alpha", `${alpha}%`);
