@@ -80,6 +80,7 @@ $(document).ready(function() {
 			//validate the email entry with a regular expression
 
 			var email = $("#email").val().trim();
+			var emailPattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 			if (email == "") {
 				$("#email").next().text("This field is required.");

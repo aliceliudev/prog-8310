@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/visit.css">
+    <script type="text/javascript" src="js/visit.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+
+
+
+    <title>Make a visit</title>
+
+<body>
+    <h1>Visit Alice's smart home</h1>
+
+
+    <form action="response.html" method="get" name="reservation_form" id="reservation_form">
+        <fieldset>
+            <legend>General Information</legend>
+            <label for="visit_date">Visit date:</label>
+            <input type="date" name="visit_date" id="visit_date" autofocus>
+            <span>*</span><br>
+            <label for="region">Region:</label>
+            <input type="text" name="region" id="region">
+            <span>*</span><br>
+            <label>Adults:</label>
+            <select name="adults" id="adults">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select><br>
+            <label>Children:</label>
+            <select name="children" id="children">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select><br>
+        </fieldset>
+        <fieldset>
+            <legend>Preferences</legend>
+            <label>Time slot:</label>
+            <input type="radio" name="room" id="standard" class="left" checked>Morning&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="room" id="business" class="left">Afternoon&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="room" id="suite" class="left last">Evening<br>
+            <label>Desert type:</label>
+            <input type="radio" name="dessert" id="dessert" class="left" checked>Cake&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="dessert" id="dessert" class="left" checked>Pudding&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="dessert" id="dessert" class="left last">Muffin<br>
+            <label>Drink type:</label>
+            <input type="radio" name="drink" id="drink" class="left" checked>Water&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="drink" id="drink" class="left" checked>Tea&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="drink" id="drink" class="left last">Coffee<br>
+
+
+            <input type="checkbox" name="parking" id="parking">Parking required<br>
+            <input type="checkbox" name="pet" id="pet">Pet<br>
+        </fieldset>
+        <fieldset>
+            <legend>Contact Information</legend>
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name">
+            <span>*</span><br>
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email">
+            <span>*</span><br>
+            <label for="phone">Phone:</label>
+            <input type="text" name="phone" id="phone" placeholder="999-999-9999">
+            <span>*</span><br>
+        </fieldset>
+
+        <input type="submit" id="submit" value="Submit Request"><br>
+
+    </form>
+</body>
+
+<script type="text/javascript" src="js/visit.js"></script>
+
+</html>
