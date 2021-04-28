@@ -1,15 +1,15 @@
 
 let status = {
-    'door1': 'closed',
-    'door2': 'closed',
-    'door3': 'closed',
-    'door4': 'closed',
-    'light': 'off',
-    'kitchen': 'off'
+    'door1': false,
+    'door2': false,
+    'door3': false,
+    'door4': false,
+    'light': false,
+    'kitchen': false
 };
 $(document).ready(function() {
 
-    $(".power").click(function() {
+    $(".bulb").click(function() {
         $("body").toggleClass("active");
 
     });
@@ -18,10 +18,11 @@ $(document).ready(function() {
     $(".door-switch").click(function() {
         let $this = $(this);
 
-        openDoor($this.data('name'), $this);
+        toggleStatus($this.data('name'), $this);
 
     });
 
+    $(".door-switch-oven").click(stoveSwitch);
 
     $(".shadow").click(function() {
         $(".top-lock").toggleClass("red");
@@ -34,109 +35,61 @@ $(document).ready(function() {
 
 });
 
-// var door1IsOpen = true;
-// var door2IsOpen = true;
-// var door3IsOpen = true;
-// var door4IsOpen = true;
 
-// const doorStateArray = [true, true, true, true];
 
-// function openDoor(doorNumber) {
-//     const desiredClass = ".door" + doorNumber;
-//     console.log("Open", doorNumber);
-//     document.querySelector(desiredClass).classList.add("open");
-//     document.querySelector(desiredClass).classList.remove("closed");
-//     doorStateArray[doorNumber - 1] = true;
-//     // closeOtherDoors(doorNumber);
-// }
-
-// function closedDoor(parametru1) {
-//     const desiredClass = ".door" + parametru1;
-//     console.log("Closed", parametru1);
-//     document.querySelector(desiredClass).classList.add("closed");
-//     document.querySelector(desiredClass).classList.remove("open");
-//     doorStateArray[parametru1 - 1] = false;
-//     // openOtherDoors(parametru1);
-// }
-
-// function toogleDoor(doorNumber) {
-//     console.log("Toggled");
-//     if (doorStateArray[doorNumber - 1] === true) {
-//         // closedDoor(doorNumber);
-//         openOtherDoors(doorNumber);
-//     }
-//     else {
-//         // openDoor(doorNumber);
-//         closeOtherDoors(doorNumber);
-//     }
-// }
-
-// function closeOtherDoors(doorNumber) {
-//     for (let i = 0; i < doorStateArray.length; i++) {
-//         if (doorNumber !== i + 1) {
-//             closedDoor(i + 1);
-//         } else if (doorNumber === 1 + i) {
-//             openDoor(doorNumber);
-//         }
-//     }
-// }
-
-// function openOtherDoors(doorNumber) {
-//     closedDoor(doorNumber);
-//     for (let i = 0; i < doorStateArray.length; i++) {
-//         if (doorNumber !== i + 1) {
-//             openDoor(i + 1);
-//         }
-//     }
-// }
-
-function openDoor(id, $btn) {
+function toggleStatus(id, $btn) {
     console.log('-----------------', id);
 
-    let $door = $('#' + id);
+    let $container = $('#' + id);
+    if (status[id]) {
+        status[id] = false;
+        $container.removeClass('open');
 
-    if ($door.hasClass('open')) {
-        status[id] = 'closed';
-        $door.removeClass('open');
+        $btn.text($btn.data('labelon'));
 
-        $btn.text('Open this door');
 
         // $('body').attr('class', 'off');
     } else {
-        $door.addClass('open');
-        status[id] = 'open';
+        $container.addClass('open');
+        status[id] = true;
 
-        $btn.text('Close this door');
+        $btn.text($btn.data('labeloff'));
 
         // $('#light-bulb').attr('class', 'on');
     }
 
-    if ($light.hasClass('open')) {
-        status[id] = 'closed';
-        $door.removeClass('open');
+    //     if ($('.bulb').hasClass('open')) {
+    //         status[id] = 'closed';
+    //         $('.bulb').removeClass('open');
 
-        $btn.text('Open this door');
+    //         $btn.text('Open this door');
 
-        // $('body').attr('class', 'off');
-    } else {
-        $door.addClass('open');
-        status[id] = 'open';
+    //         // $('body').attr('class', 'off');
+    //     } else {
+    //         $door.addClass('open');
+    //         status[id] = 'open';
 
-        $btn.text('Close this door');
+    //         $btn.text('Close this door');
 
-        // $('#light-bulb').attr('class', 'on');
-    }
+    //         // $('#light-bulb').attr('class', 'on');
+    //     }
 }
+
+var stoveSwitch = function() {
+    if (status.kitchen) {
+        $('#stove').addClass('active');
+    } else {
+        $('#stove').removeClass('active');
+    }
+};
 
 var monitor = function() {
 
-    for (let door in status) {
-        $('#status-' + door).text(status[door]);
+    for (let k in status) {
+        let $status = $('#status-' + k);
+        $status.text(status[k] ? $status.data('labelon') : $status.data('labeloff'));
 
     }
-    $('#status-' + light).text(status[light]);
-    $('#status-' + kitchen).text(status[kitchen]);
-
 };
 
 
@@ -152,12 +105,12 @@ var monitor = function() {
 
 
 
-const tempDisplay = document.querySelector("#temp-display");
-const tempHandle = document.querySelector("#temp-handle");
-const dialCenter = document.querySelector("#dial-center");
+const tempDisplay = $("#temp-display")[0];
+const tempHandle = $("#temp-handle")[0];
+const dialCenter = $("#dial-center")[0];
 
-const minTemp = 50.0;
-const maxTemp = 90.0;
+const minTemp = 80.0;
+const maxTemp = 400.0;
 const tempRange = maxTemp - minTemp;
 
 let origin = calculateRotationOrigin();
@@ -174,19 +127,12 @@ function calculateRotationOrigin() {
 
 function handleMouseDown(event) {
     rotating = true;
+    origin = calculateRotationOrigin();
 }
 
 function handleMouseMove(event) {
     if (rotating) {
         const { clientX, clientY } = event;
-        rotate(clientX, clientY);
-    }
-}
-
-function handleTouchMove(event) {
-    if (rotating) {
-        event.preventDefault();
-        const { touches: { 0: { clientX, clientY } } } = event;
         rotate(clientX, clientY);
     }
 }
@@ -206,23 +152,23 @@ function rotate(x, y) {
 function updateDial(angle) {
     const percentageOfFullRange = ((360 + (angle - 90)) % 360) / 360;
     const newTemp = (minTemp + tempRange * percentageOfFullRange).toFixed(1);
-    const hue = percentageOfFullRange < 0.5 ? 200 : 5;
-    const alpha = 40 + 2 * 45 * Math.abs(percentageOfFullRange - 0.5);
+    //const hue = percentageOfFullRange < 0.5 ? 200 : 5;
+    const opacity = 0.5 + percentageOfFullRange * 360 / 100;
+    //const alpha = 40 + 2 * 45 * Math.abs(percentageOfFullRange - 0.5);
 
     tempDisplay.innerHTML = newTemp;
     document.documentElement.style.setProperty("--temp-rotation", `${angle}deg`);
-    document.documentElement.style.setProperty("--temp-hue", hue);
-    document.documentElement.style.setProperty("--temp-alpha", `${alpha}%`);
+    //document.documentElement.style.setProperty("--temp-hue", hue);
+    //document.documentElement.style.setProperty("--temp-alpha", `${alpha}%`);
+
+    $('#stove').css('opacity', opacity);
 }
 
 tempHandle.addEventListener("mousedown", handleMouseDown);
-tempHandle.addEventListener("touchstart", handleMouseDown);
 
 document.addEventListener("mousemove", handleMouseMove);
-document.addEventListener("touchmove", handleTouchMove, { passive: false });
 
 document.addEventListener("mouseup", handleMouseUp);
-document.addEventListener("touchend", handleMouseUp);
 
 window.addEventListener("resize", () => {
     origin = calculateRotationOrigin();
@@ -308,4 +254,3 @@ window.addEventListener("resize", () => {
 // window.addEventListener("resize", () => {
 //     origin = calculateRotationOrigin();
 // });
-

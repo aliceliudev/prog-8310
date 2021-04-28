@@ -367,7 +367,7 @@ body {
 }
 .pot:after {
     left: 55px;
-}
+} 
 
 /*
 .smoke {
@@ -509,7 +509,29 @@ body {
   
   
  
+/*Weather*/
+.weatherReport{
 
+
+   width:100px;
+    background-color:hsl(41, 29%, 89%);  
+    box-shadow: 1px 1px 5px #212121;
+    position: relative;
+    margin: 0 auto;
+    border: 5px solid #ccc;
+    justify-content: center;
+    align-content: center;
+    border-radius: 10px;
+    text-align: center;
+    margin-right:100px;
+
+   
+}
+.weatherReport h4{
+    text-align:center;
+    margin:0;
+
+}
 
   
   

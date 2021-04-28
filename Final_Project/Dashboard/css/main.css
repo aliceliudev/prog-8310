@@ -305,4 +305,7 @@ span:nth-child(odd) {
 	font-weight: 600;
 	text-decoration: none;
   }
-  
+
+  #stove.active{
+	  background-color: rgba(211, 80, 80, 0.801);
+  }
