@@ -20,14 +20,6 @@ legend {
 label {
 	float: left;
     width: 90px;
-    width: 100%; 
-    background: #fff; 
-    border: 3px solid transparent; 
-    border-radius: 3px;
-    height: 45px; 
-    line-height: 45px; 
-    padding: 0 40px 0 10px; 
-    transition: .3s ease all; 
 }
 input, select {
     margin-left: 1em;
@@ -58,16 +50,6 @@ input.last {
 #submit {
 	margin-left: 0;
 	width: 10em;
-    height: 45px;/* Altura del botón */
-    line-height: 45x; /* Altura del texto del botón */
-    width: 30%;
-    background: #000; /* Fondo negro  */
-    color: #fff; /* Letras blancas */
-    font-weight: 700; /* bold */
-    border: none; /* Sin bordes */
-    border-radius: 3px; /* Borde circular */
-    cursor: pointer; /* Cambiar el cursor  */
-    transition:  .1s ease all;
 }
 span {
 	color: red;

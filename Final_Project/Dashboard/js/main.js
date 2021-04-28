@@ -1,4 +1,10 @@
 
+let status = {
+    'door1': 'closed',
+    'door2': 'closed',
+    'door3': 'closed',
+    'door4': 'closed'
+};
 $(document).ready(function() {
 
     $(".power").click(function() {
@@ -16,61 +22,88 @@ $(document).ready(function() {
 
 });
 
-var door1IsOpen = true;
-var door2IsOpen = true;
-var door3IsOpen = true;
-var door4IsOpen = true;
+// var door1IsOpen = true;
+// var door2IsOpen = true;
+// var door3IsOpen = true;
+// var door4IsOpen = true;
 
-const doorStateArray = [true, true, true, true];
+// const doorStateArray = [true, true, true, true];
 
-function openDoor(doorNumber) {
-    const desiredClass = ".door" + doorNumber;
-    console.log("Open", doorNumber);
-    document.querySelector(desiredClass).classList.add("open");
-    document.querySelector(desiredClass).classList.remove("closed");
-    doorStateArray[doorNumber - 1] = true;
-    // closeOtherDoors(doorNumber);
-}
+// function openDoor(doorNumber) {
+//     const desiredClass = ".door" + doorNumber;
+//     console.log("Open", doorNumber);
+//     document.querySelector(desiredClass).classList.add("open");
+//     document.querySelector(desiredClass).classList.remove("closed");
+//     doorStateArray[doorNumber - 1] = true;
+//     // closeOtherDoors(doorNumber);
+// }
 
-function closedDoor(parametru1) {
-    const desiredClass = ".door" + parametru1;
-    console.log("Closed", parametru1);
-    document.querySelector(desiredClass).classList.add("closed");
-    document.querySelector(desiredClass).classList.remove("open");
-    doorStateArray[parametru1 - 1] = false;
-    // openOtherDoors(parametru1);
-}
+// function closedDoor(parametru1) {
+//     const desiredClass = ".door" + parametru1;
+//     console.log("Closed", parametru1);
+//     document.querySelector(desiredClass).classList.add("closed");
+//     document.querySelector(desiredClass).classList.remove("open");
+//     doorStateArray[parametru1 - 1] = false;
+//     // openOtherDoors(parametru1);
+// }
 
-function toogleDoor(doorNumber) {
-    console.log("Toggled");
-    if (doorStateArray[doorNumber - 1] === true) {
-        // closedDoor(doorNumber);
-        openOtherDoors(doorNumber);
+// function toogleDoor(doorNumber) {
+//     console.log("Toggled");
+//     if (doorStateArray[doorNumber - 1] === true) {
+//         // closedDoor(doorNumber);
+//         openOtherDoors(doorNumber);
+//     }
+//     else {
+//         // openDoor(doorNumber);
+//         closeOtherDoors(doorNumber);
+//     }
+// }
+
+// function closeOtherDoors(doorNumber) {
+//     for (let i = 0; i < doorStateArray.length; i++) {
+//         if (doorNumber !== i + 1) {
+//             closedDoor(i + 1);
+//         } else if (doorNumber === 1 + i) {
+//             openDoor(doorNumber);
+//         }
+//     }
+// }
+
+// function openOtherDoors(doorNumber) {
+//     closedDoor(doorNumber);
+//     for (let i = 0; i < doorStateArray.length; i++) {
+//         if (doorNumber !== i + 1) {
+//             openDoor(i + 1);
+//         }
+//     }
+// }
+
+function openDoor(id) {
+    console.log('-----------------', id);
+    $('#doorstatus').text('closed' + id);
+    if ($('#' + id).hasClass('open')) {
+        status[id] = 'closed';
+        $(id).removeClass('open');
+
+        // $('body').attr('class', 'off');
+    } else {
+        $('#' + id).addClass('open');
+        status[id] = 'open';
+        $('#doorstatus').text('open');
+        // $('#light-bulb').attr('class', 'on');
     }
-    else {
-        // openDoor(doorNumber);
-        closeOtherDoors(doorNumber);
-    }
 }
 
-function closeOtherDoors(doorNumber) {
-    for (let i = 0; i < doorStateArray.length; i++) {
-        if (doorNumber !== i + 1) {
-            closedDoor(i + 1);
-        } else if (doorNumber === 1 + i) {
-            openDoor(doorNumber);
-        }
-    }
-}
 
-function openOtherDoors(doorNumber) {
-    closedDoor(doorNumber);
-    for (let i = 0; i < doorStateArray.length; i++) {
-        if (doorNumber !== i + 1) {
-            openDoor(i + 1);
-        }
-    }
-}
+
+
+
+
+
+
+
+
+
 
 
 

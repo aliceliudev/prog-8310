@@ -7,8 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
+    <script src="https://use.fontawesome.com/9cef78d00b.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
+
+
+
     <link href="css/control.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="css/link.css">
 </head>
 
 <body>
@@ -22,34 +27,56 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="content">
-                    <h3 class="room-title">Living Room</h3>
+                    <h3 class="room-title">Living Room door</h3>
                     <hr />
-                    <div class="device-icon"><i class="fa fa-lightbulb-o"></i></div>
-                    <a class="button success-button toggle-button" href="#">Turn on Device</a>
+                    <div class="device-icon"><i class="fas fa-map-marker"></i></div>
+                    <a onclick="openDoor('door1')" class="button success-button toggle-button" id="btn_1" href="#">Close
+                        the
+                        door</a>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="content">
+                    <h3 class="room-title">Bedroom door</h3>
+                    <hr />
+                    <div class="device-icon"><i class="fas fa-map-marker"></i></div>
+                    <a onclick="openDoor('door2')" class="button success-button toggle-button enabled" id="btn_2"
+                        href="#">Close the door</a>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="content">
-                    <h3 class="room-title">Bedroom 1</h3>
+                    <h3 class="room-title">Basement door</h3>
                     <hr />
-                    <div class="device-icon"><i class="fa fa-lightbulb-o"></i></div>
-                    <a class="button success-button toggle-button power" href="#">Turn on Device</a>
+                    <div class="device-icon"><i class="fas fa-map-marker"></i></div>
+                    <a onclick="openDoor('door3')" class="button success-button toggle-button enabled" id="btn_3"
+                        href="#">Close the door</a>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="content">
-                    <h3 class="room-title">Bedroom 1 Computer</h3>
+                    <h3 class="room-title">Garage door</h3>
                     <hr />
-                    <div class="device-icon"><i class="fa fa-plug"></i></div>
-                    <a class="button success-button toggle-button enabled" href="#">Turn off Device</a>
+                    <div class="device-icon"><i class="fas fa-map-marker"></i></div>
+                    <a onclick="openDoor('door4')" class="button success-button toggle-button enabled" id="btn_4"
+                        href="#">Close the door</a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="content">
+                    <h3 class="room-title">Bedroom light</h3>
+                    <hr />
+                    <div class="device-icon"><i class="fa fa-lightbulb-o"></i></div>
+                    <a class="button success-button toggle-button power" href="#">Turn on the light</a>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="content">
                     <h3 class="room-title">Kitchen</h3>
                     <hr />
-                    <div class="device-icon"><i class="fa fa-lightbulb-o"></i></div>
-                    <a class="button success-button toggle-button" href="#">Turn on Device</a>
+                    <div class="device-icon"><i class="fa fa-plug"></i></div>
+                    <a class="button success-button toggle-button" href="#">Turn on the Oven</a>
                 </div>
             </div>
         </div>
@@ -101,56 +128,45 @@
     <div class="flex-container">
 
         <div class="room-with-door">
-            <div class="room">Room 1</div>
-            <div class="door1 door open"></div>
+            <div class="room">Living Room</div>
+            <div id="door1" class="door1 door open"></div>
 
-            <button type="button" onclick="closeOtherDoors(1)">Open door</button>
-            <button type="button" onclick="openOtherDoors(1)">Closed door</button>
-            <button type="button" onclick="toogleDoor(1)">Toggle door</button>
-
-        </div>
-
-        <div class="room-with-door">
-            <div class="room">Room 2</div>
-            <div class="door2 door open"></div>
-
-            <button type="button" onclick="closeOtherDoors(2)">Open door</button>
-            <button type="button" onclick="openOtherDoors(2)">Closed door</button>
-            <button type="button" onclick="toogleDoor(2)">Toggle door</button>
+            <button type="button">Open door</button>
+            <button type="button">Closed door</button>
+            <button type="button">Toggle door</button>
 
         </div>
 
         <div class="room-with-door">
-            <div class="room">Room 3</div>
-            <div class="door3 door open"></div>
+            <div class="room">Bedroom door</div>
+            <div id="door2" class="door2 door open"></div>
 
-            <button type="button" onclick="closeOtherDoors(3)">Open door</button>
-            <button type="button" onclick="openOtherDoors(3)">Closed door</button>
-            <button type="button" onclick="toogleDoor(3)">Toggle door</button>
+            <button type="button">Open door</button>
+            <button type="button">Closed door</button>
+            <button type="button">Toggle door</button>
 
         </div>
 
         <div class="room-with-door">
-            <div class="room">Room 4</div>
-            <div class="door4 door open"></div>
+            <div class="room">Basement </div>
+            <div id="door3" class="door3 door open"></div>
 
-            <button type="button" onclick="closeOtherDoors(4)">Open door</button>
-            <button type="button" onclick="openOtherDoors(4)">Closed door</button>
-            <button type="button" onclick="toogleDoor(4)">Toggle door</button>
+            <button type="button">Open door</button>
+            <button type="button">Closed door</button>
+            <button type="button">Toggle door</button>
+
+        </div>
+
+        <div class="room-with-door">
+            <div class="room">Garage</div>
+            <div id="door4" class="door4 door open"></div>
+
+            <button type="button">Open door</button>
+            <button type="button">Closed door</button>
+            <button type="button">Toggle door</button>
 
         </div>
     </div>
-
-    <div class="position">
-        <div class="shadow">
-            <div class="top-lock"></div>
-            <div class="bottom-lock"></div>
-        </div>
-    </div>
-    <div class="status">
-        <p class="locked">The door is </p><span class="hidden">locked</span><span class="visible">open</span>
-    </div>
-
     <!--The stove-->
     <main class="app">
         <div class="dial-container">
@@ -179,6 +195,61 @@
     </main>
 
 
+    <div class="position">
+        <div class="summary">
+
+            <div class="status">
+                <h3>IoT summary:</h3>
+                <p class="locked">The Living Room door is </p><span class="hidden">locked</span><span class="visible"
+                    id="doorstatus">open</span>
+                <p class="locked">The Bedroom light is </p><span class="hidden">off</span><span
+                    class="visible">open</span>
+                <p class="locked">The Basement door is </p><span class="hidden">locked</span><span
+                    class="visible">open</span>
+                <p class="locked">The Garage door is </p><span class="hidden">locked</span><span
+                    class="visible">open</span>
+                <p class="locked">The Bedroom light is </p><span class="hidden">locked</span><span
+                    class="visible">open</span>
+                <p class="locked">The Kitchen appliance is </p><span class="hidden">off</span><span
+                    class="visible">open</span>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+    <ul class="boxes">
+        <li class="box">
+            <div class="card  card3">
+                <a href="first.html">
+
+
+                    <div class="card-desc">IoT</div>
+                </a>
+            </div>
+        </li>
+        <li class="box">
+            <div class="card card1 ">
+                <a href="home.html">
+                    <div class="card-desc">Go Back Home</div>
+                </a>
+            </div>
+        </li>
+        <li class="box">
+
+            <div class="card card3">
+                <a href="visit.html">
+                    <div class="card-desc">Open House</div>
+                </a>
+
+            </div>
+        </li>
+
+    </ul>
+
 
 
 
@@ -187,7 +258,7 @@
 
 
 </body>
-
+<script type="text/javascript" src="js/main.js"></script>
 
 
 </html>
