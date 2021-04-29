@@ -74,7 +74,7 @@ setInterval(setDate, 1000);
 
 
 function getWeather() {
-    fetch('http://api.openweathermap.org/data/2.5/weather?q=Waterloo&appid=2959361a7efa97a4a6f88bf074109176&units=imperial')
+    fetch('http://api.openweathermap.org/data/2.5/weather?q=Waterloo&appid=2959361a7efa97a4a6f88bf074109176')
         .then(response => {
             return response.json();
         })
