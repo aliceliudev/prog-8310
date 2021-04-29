@@ -10,9 +10,13 @@ $(document).ready(function() {
     $('#switch_btn').click(function() {
         if ($('body').hasClass('active')) {
             $('body').removeClass('active');
+            ($('#switch_btn').addClass('inactive'));
+            ($('#switch_btn').removeClass('active'));
             // $('body').attr('class', 'off');
         } else {
             $('body').addClass('active');
+            ($('#switch_btn').addClass('active'));
+            ($('#switch_btn').removeClass('inactive'));
             // $('#light-bulb').attr('class', 'on');
         }
     });
@@ -84,9 +88,27 @@ function getWeather() {
             // const _weather = $('.weather');
             // _weather.innerHTML = res.weather[0];
             $('.weatherReport h4').html(res.name + "'s weather");
-            $(".weather").html(res.weather[0].main);
+            // $(".weather").html(res.weather[0].main);
             $(".temp").html(res.main.temp + "&deg;F");
             $(".wind").html(res.wind.speed + "m/h");
+            switch (res.weather[0].main) {
+                case "cloudy":
+
+                    break;
+                case "Mist":
+                    $(".weather").addClass("weather-cloudy");
+
+                    break;
+                // case "cloudy":
+
+                //             break;
+                // case "cloudy":
+
+                //                 break;
+
+                default:
+                    break;
+            }
         });
 }
 getWeather();

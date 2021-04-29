@@ -24,12 +24,6 @@ $(document).ready(function() {
 
     $(".door-switch-oven").click(stoveSwitch);
 
-    $(".shadow").click(function() {
-        $(".top-lock").toggleClass("red");
-        $(".bottom-lock").toggleClass("red");
-
-        $("span").toggleClass("visible hidden");
-    });
 
     setInterval(monitor, 200);
 
