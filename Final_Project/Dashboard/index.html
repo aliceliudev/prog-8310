@@ -5,7 +5,7 @@
     <title>Smart Home Manager</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
+
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://use.fontawesome.com/9cef78d00b.js"></script>
@@ -18,13 +18,14 @@
 </head>
 
 <body>
+
     <div class="container-top">
         <div class="row">
             <div class="col-md-3">
                 <div class="content">
                     <h3 class="room-title">Living Room door</h3>
                     <hr />
-                    <div class="device-icon"><i class="fas fa-map-marker"></i></div>
+                    <div class="device-icon living"></div>
                     <a class="button success-button toggle-button door-switch" data-name="door1"
                         data-labelon="Open the door" data-labeloff="Close the door" href="#">Open
                         the
@@ -36,7 +37,7 @@
                 <div class="content">
                     <h3 class="room-title">Bedroom door</h3>
                     <hr />
-                    <div class="device-icon"><i class="fas fa-map-marker"></i></div>
+                    <div class="device-icon bedroom"></div>
                     <a class="button success-button toggle-button door-switch" data-name="door2"
                         data-labelon="Open the door" data-labeloff="Close the door" href="#">Open
                         the
@@ -47,7 +48,7 @@
                 <div class="content">
                     <h3 class="room-title">Basement door</h3>
                     <hr />
-                    <div class="device-icon"><i class="fas fa-map-marker"></i></div>
+                    <div class="device-icon basement"></div>
                     <a class="button success-button toggle-button door-switch" data-name="door3"
                         data-labelon="Open the door" data-labeloff="Close the door" href="#">Open
                         the
@@ -58,7 +59,7 @@
                 <div class="content">
                     <h3 class="room-title">Garage door</h3>
                     <hr />
-                    <div class="device-icon"><i class="fas fa-map-marker"></i></div>
+                    <div class="device-icon garage"></div>
                     <a class="button success-button toggle-button door-switch" data-name="door4"
                         data-labelon="Open the door" data-labeloff="Close the door" href="#">Open
                         the
@@ -69,7 +70,7 @@
                 <div class="content">
                     <h3 class="room-title">Bedroom light</h3>
                     <hr />
-                    <div class="device-icon"><i class="fa fa-lightbulb-o"></i></div>
+                    <div class="device-icon bedroomlight"></div>
                     <a class="button success-button toggle-button  door-switch bulb" data-name="light"
                         data-labelon="Turn on the light" data-labeloff="Turn off the light" href="#">Turn on
                         the light</a>
@@ -79,7 +80,7 @@
                 <div class="content">
                     <h3 class="room-title">Kitchen</h3>
                     <hr />
-                    <div class="device-icon"><i class="fa fa-plug"></i></div>
+                    <div class="device-icon kitchen"></div>
                     <a class="button success-button toggle-button door-switch door-switch-oven" data-name="kitchen"
                         data-labelon="Turn on the oven" data-labeloff="Turn off the oven" href="#">Turn on the
                         Oven</a>
@@ -135,41 +136,36 @@
 
             <div class="room-with-door">
                 <div class="room">Living Room</div>
+                <div class="door-knob"></div>
                 <div id="door1" class="door1 door"></div>
 
-                <button type="button">Open door</button>
-                <button type="button">Closed door</button>
-                <button type="button">Toggle door</button>
 
             </div>
 
             <div class="room-with-door">
                 <div class="room">Bedroom door</div>
+                <div class="door-knob"></div>
                 <div id="door2" class="door2 door"></div>
 
-                <button type="button">Open door</button>
-                <button type="button">Closed door</button>
-                <button type="button">Toggle door</button>
+
+
 
             </div>
 
             <div class="room-with-door">
                 <div class="room">Basement </div>
+                <div class="door-knob"></div>
                 <div id="door3" class="door3 door"></div>
 
-                <button type="button">Open door</button>
-                <button type="button">Closed door</button>
-                <button type="button">Toggle door</button>
 
             </div>
 
             <div class="room-with-door">
                 <div class="room">Garage</div>
+                <div class="door-knob"></div>
                 <div id="door4" class="door4 door"></div>
 
-                <button type="button">Open door</button>
-                <button type="button">Closed door</button>
-                <button type="button">Toggle door</button>
+
 
             </div>
         </div>
@@ -210,19 +206,31 @@
 
             <div class="status">
                 <h3>IoT summary:</h3>
-                <p class="locked">The Living Room door is </p><span class="hidden">locked</span><span class="visible"
-                    id="status-door1" data-labelon="open" data-labeloff="closed"></span>
-                <p class="locked">The Bedroom light is </p><span class="hidden">off</span><span class="visible"
-                    id="status-door2" data-labelon="open" data-labeloff="closed"></span>
-                <p class="locked">The Basement door is </p><span class="hidden">locked</span><span class="visible"
-                    id="status-door3" data-labelon="open" data-labeloff="closed"></span>
-                <p class="locked">The Garage door is </p><span class="hidden">locked</span><span class="visible"
-                    id="status-door4" data-labelon="open" data-labeloff="closed"></span>
-                <p class="locked">The Bedroom light is </p><span class="hidden">locked</span><span class="visible"
-                    id="status-light" data-labelon="on" data-labeloff="off"></span>
-                <p class="locked">The Kitchen appliance is </p><span class="hidden">off</span><span class="visible"
-                    id="status-kitchen" data-labelon="on" data-labeloff="off"></span>
-                <span class="oven-temp-now"></span>
+                <div class=" display living">
+                    <p class="locked">The Living Room door is </p><span class="hidden">locked</span><span
+                        class="visible" id="status-door1" data-labelon="open" data-labeloff="closed"></span>
+                </div>
+                <div class=" display bedroom">
+                    <p class="locked">The Bedroom light is </p><span class="hidden">off</span><span class="visible"
+                        id="status-door2" data-labelon="open" data-labeloff="closed"></span>
+                </div>
+                <div class="display basement">
+                    <p class="locked">The Basement door is </p><span class="hidden">locked</span><span class="visible"
+                        id="status-door3" data-labelon="open" data-labeloff="closed"></span>
+                </div>
+                <div class="display garage">
+                    <p class="locked">The Garage door is </p><span class="hidden">locked</span><span class="visible"
+                        id="status-door4" data-labelon="open" data-labeloff="closed"></span>
+                </div>
+                <div class="display light_bedroom">
+                    <p class="locked">The Bedroom light is </p><span class="hidden">locked</span><span class="visible"
+                        id="status-light" data-labelon="on" data-labeloff="off"></span>
+                </div>
+                <div class="display kitchen">
+                    <p class="locked">The Kitchen appliance is </p><span class="hidden">off</span><span class="visible"
+                        id="status-kitchen" data-labelon="on" data-labeloff="off"></span>
+                    <span class="oven-temp-now"></span>
+                </div>
             </div>
 
         </div>
@@ -238,14 +246,18 @@
                 <a href="first.html">
 
 
-                    <div class="card-desc">IoT</div>
+                    <div class="card-desc">IoT<br>
+                        <span> Designed by Alice Liu</span>
+                    </div>
                 </a>
             </div>
         </li>
         <li class="box">
             <div class="card card1 ">
                 <a href="home.html">
-                    <div class="card-desc">Go Back Home</div>
+                    <div class="card-desc">Go Back Home<br>
+                        <span> Designed by Alice Liu</span>
+                    </div>
                 </a>
             </div>
         </li>
@@ -253,7 +265,9 @@
 
             <div class="card card3">
                 <a href="visit.html">
-                    <div class="card-desc">Open House</div>
+                    <div class="card-desc">Open House<br>
+                        <span> Designed by Alice Liu</span>
+                    </div>
                 </a>
 
             </div>
@@ -262,13 +276,14 @@
     </ul>
 
 
-
-
-
-
-
-
 </body>
+<footer>
+    <div id="foot">
+        Copyright of the IoT part for this project belongs to Alice Liu.<br>
+        The stove is implemented basing on the idea of:<br>
+        Theromostat from: https://codepen.io/HGreen7/pen/YMNdEB
+    </div>
+</footer>
 <script type="text/javascript" src="js/main.js"></script>
 
 

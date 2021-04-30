@@ -7,7 +7,7 @@ body {
     align-content: space-between;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 50vh;
 }
 
 .box {
@@ -24,7 +24,7 @@ body {
     overflow: hidden;
     box-shadow: 0px 13px 10px -7px rgb(0 0 0 / 10%);
     margin: 20px;
-    background-color:rgb(104, 104, 100);
+    background-color: rgb(104, 104, 100);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -33,6 +33,7 @@ body {
 .card1 {
     background-image: url('../images/back.png');
 }
+
 .card2 {
     background-image: url('../images/smart.png');
 }
@@ -40,13 +41,19 @@ body {
 .card3 {
     background-image: url('../images/form.png');
 }
-    
+
 }
 
 .card:hover {
     box-shadow: 0px 30px 18px -8px rgb(0 0 0 / 10%);
     transform: scale(1.10, 1.10);
-    opacity: .3;
+    opacity: .7;
+}
+
+.box:hover {
+    box-shadow: 0px 30px 18px -8px rgb(0 0 0 / 10%);
+    transform: scale(1.10, 1.10);
+    opacity: .7;
 }
 
 .card-desc {
@@ -56,20 +63,34 @@ body {
     bottom: 0;
     width: 100%;
     font-weight: bold;
-    font-size:20px;
+    font-size: 20px;
     text-align: center;
-    
 }
 
-ul,
-li {
+.card-desc span {
+    font-size: 12px;
+    color: #000;
+}
+
+ul, li {
     margin: 0;
     padding: 0;
     list-style: none;
 }
-h1{
+
+h1 {
     text-align: center;
-    margin:50px auto;
+    margin: 50px auto;
+}
+
+#foot {
+    text-align: center;
+    color: #091d36;
+    background-color: #aca8a4;
+    line-height: 25px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 @media(max-width: 760px) {
@@ -78,4 +99,3 @@ h1{
         height: auto;
     }
 }
-

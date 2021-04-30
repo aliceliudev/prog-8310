@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-
+    //10 marks for using for validation
     $("#reservation_form").submit(
         function(event) {
 
@@ -73,7 +73,7 @@ $(document).ready(function() {
                 isValid = false;
 
             }
-
+            //15 marks for using logical AND, OR, NOT
             else {
                 $("#email").next().text("");
 
@@ -92,7 +92,7 @@ $(document).ready(function() {
                 isValid = false;
 
             }
-
+            //5 marks Use if else 
             else if (!phonePattern.test(phone)) {
                 $("#phone").next().text("Enter a valid phone numer.");
                 isValid = false;
@@ -120,3 +120,5 @@ $(document).ready(function() {
 
 }); // end ready
 
+//Total score for this page is: 30
+//Whole score: 42+49+30=121
